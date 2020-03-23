@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using dance_combo_generator_2.DataStore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -23,7 +19,13 @@ namespace dance_combo_generator_2.Controllers
         {
             var dataStore = new CsvDataStore();
             var moves = dataStore.GetAllMoves();
-            return View();
+            return View(new HomeModel { Moves = moves });
+        }
+
+        [HttpPost]
+        public IActionResult Submit()
+        {
+            return Error();
         }
 
         public IActionResult Privacy()

@@ -8,5 +8,6 @@ namespace dance_combo_generator_2.DataStore
     public interface IDataStore
     {
         List<Move> GetAllMoves();
+        List<Move> GenerateCombo(int numMoves, int difficulty);
     }
 }
